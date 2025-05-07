@@ -1,3 +1,8 @@
+---
+header-includes:
+  - \usepackage{mathtools}
+---
+
 # Multi-Layer Perceptrons, Stochastic Gradient Descent, and Optimization
 
 ## Outline
@@ -6,8 +11,8 @@
   - [Outline](#outline)
   - [Multi-Layer Perceptrons](#multi-layer-perceptrons)
     - [Motivation](#motivation)
-    - [Architecture](#architecture)
     - [Forward Pass](#forward-pass)
+    - [Forward Pass](#forward-pass-1)
     - [Backpropagation](#backpropagation)
   - [Optimization](#optimization)
     - [Motivation](#motivation-1)
@@ -22,16 +27,24 @@ Last lecture, we learned about perceptrons, a type of neural network that takes 
 
 The answer is surprisingly elegant. If a single perceptron doesn't work, we can combine **multiple** together to create non-linear decision boundaries. This layered structure of stacking multiple perceptrons with non-linear activations is what defines a multi-layer perceptron (MLP). Just as we can approximate curves with small straight-line segments in calculus, we can approximate non-linear decision boundaries with linear perceptrons.
 
-### Architecture
+### Forward Pass
 
 An MLP consists of an input layer, one or more hidden layers with neurons, and an output layer. Each neuron in a hidden layer computes a **weighted** sum of inputs from the previous layer, adds a bias, and then applies a **non-linear** activation function.
-<img src= https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/forward pass.png>
+<img src= https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/images/forward_pass.png>
+A forward pass through the MLP performs the following steps:
+
+1. **Multiply the input x to a node with a weight vector associated with the node.**
+   At every neuron in the network, we perform a weighted sum of the inputs and add a bias. Note that in the past, we have stored the bias term separately, but it's possible to encode the bias into our weights. By rewriting $x_i$ as $\begin{bmatrix} {x}_i \\1\end{bmatrix}$ and $w$ as $\begin{bmatrix} w \\ b \end{bmatrix}$, we have $$a_i=wx_i=\begin{bmatrix} w \\ b \end{bmatrix}^T \begin{bmatrix} x_i \\ 1 \end{bmatrix} = w^Tx_i+b$$
+2. **Apply a non-linear activation function $\sigma$ to the weighted sum $a_i$.**
+   Activation functions allow neurons to introduce non-linearity and complexity into the model and without them, the model could be represented as a single linear transformation. Early MLPs used the sigmoid (logistic) function, which squashes between $0$ and $1$. An alternative is the hyperbolic tangent (tanh), which squashes between $-1$ and $1$. However, the most popular choice in modern networks is the ReLU (Rectified Linear Unit) which is $0$ for negative inputs and the identity function for positive inputs.
 
 Let's see an example of this in action!
-<img src=https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/sample_neural_network.png>
+<img src=https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/images/sample_neural_network.png>
 Figure 1: Example structure of a simple MLP with two input features $x_1, x_2$, two hidden neurons $u$ and $v$ in a hidden layer, and an output neuron $z$.
 
 Now, how do we use an MLP? During training, the input is passed
+
+1.
 
 ### Forward Pass
 
