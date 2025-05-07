@@ -6,9 +6,11 @@
   - [Outline](#outline)
   - [Multi-Layer Perceptrons](#multi-layer-perceptrons)
     - [Motivation](#motivation)
+    - [Architecture](#architecture)
     - [Forward Pass](#forward-pass)
     - [Backpropagation](#backpropagation)
-  - [Gradient Descent](#gradient-descent)
+  - [Optimization](#optimization)
+    - [Motivation](#motivation-1)
     - [Problems](#problems)
   - [SGD](#sgd)
 
@@ -16,17 +18,29 @@
 
 ### Motivation
 
-Last lecture, we learned about pereptrons, a type of neural network which given some input features, can make a binary decision. Perceptrons work well when the data is linearly separable, meaning that a straight line (hyperplane) can cleanly divide the classes. However, perceptrons fail when the decision boundary is not linearly separable; for example, in the classic XOR problem. So how can we create non-linear decision boundaries?
+Last lecture, we learned about perceptrons, a type of neural network that takes input features and makes a binary decision. Perceptrons work well when the data is linearly separable, meaning that a straight line (hyperplane) can cleanly divide the classes. However, perceptrons fail when the decision boundary is not linearly separable; for example, in the classic XOR problem. So how can we create non-linear decision boundaries?
 
-The answer is to combine multiple perceptrons in hidden layers. By combining multiple perceptrons together, we can create models called multi-layer perceptrons (MLPs). MLPs consist of an input layer, one or more hidden layers with neurons, and an output layer. Each neuron in a hidden layer computes a **weighted** sum of inputs from the previous layer, and then applies a **non-linear** activation function. Stacking these layers together allows the model to form complex decision boundaries and overcome the linearity limitation.
+The answer is surprisingly elegant. If a single perceptron doesn't work, we can combine **multiple** together to create non-linear decision boundaries. This layered structure of stacking multiple perceptrons with non-linear activations is what defines a multi-layer perceptron (MLP). Just as we can approximate curves with small straight-line segments in calculus, we can approximate non-linear decision boundaries with linear perceptrons.
 
-Let's look at an example of this in action!
+### Architecture
+
+An MLP consists of an input layer, one or more hidden layers with neurons, and an output layer. Each neuron in a hidden layer computes a **weighted** sum of inputs from the previous layer, adds a bias, and then applies a  **non-linear** activation function.
+
+Let's see an example of this in action!
+<img src=https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/sample_neural_network.png>
+Figure 1: Example structure of a simple MLP with two input features $x_1, x_2$, two hidden neurons $u$ and $v$ in a hidden layer, and an output neuron $z$.
+
+Now, how do we use an MLP? During training, the input is passed
 
 ### Forward Pass
 
 ### Backpropagation
 
-## Gradient Descent
+## Optimization
+
+### Motivation
+
+So far, we've seen how
 
 ### Problems
 
