@@ -24,7 +24,8 @@ The answer is surprisingly elegant. If a single perceptron doesn't work, we can 
 
 ### Architecture
 
-An MLP consists of an input layer, one or more hidden layers with neurons, and an output layer. Each neuron in a hidden layer computes a **weighted** sum of inputs from the previous layer, adds a bias, and then applies a  **non-linear** activation function.
+An MLP consists of an input layer, one or more hidden layers with neurons, and an output layer. Each neuron in a hidden layer computes a **weighted** sum of inputs from the previous layer, adds a bias, and then applies a **non-linear** activation function.
+<img src= https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/forward pass.png>
 
 Let's see an example of this in action!
 <img src=https://raw.githubusercontent.com/William-Leung/cs4782-optimization-notes/main/sample_neural_network.png>
